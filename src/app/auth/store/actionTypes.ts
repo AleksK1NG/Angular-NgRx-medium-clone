@@ -1,0 +1,5 @@
+export enum AuthActionTypes {
+  REGISTER_REQUEST = '[Auth] REGISTER_REQUEST',
+  REGISTER_SUCCESS = '[Auth] REGISTER_SUCCESS',
+  REGISTER_ERROR = '[Auth] REGISTER_ERROR',
+}
