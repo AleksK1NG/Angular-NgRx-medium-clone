@@ -7,9 +7,4 @@ import { Component } from '@angular/core'
 })
 export class AppComponent {
   title = 'medium-clone'
-
-  handleClick(e: Event) {
-    console.log('click ', e.target)
-    this.title = ' Cool =D'
-  }
 }
