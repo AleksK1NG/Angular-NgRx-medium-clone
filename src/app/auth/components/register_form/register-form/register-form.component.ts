@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store'
 import { registerRequestAction } from '../../../store/authActions'
 import { isSubmittingSelector } from '../../../store/authSelectors'
 import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { RegisterRequest } from '../../../store/authInterfaces'
 
 @Component({
   selector: 'app-register-form',
@@ -27,8 +27,8 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 
   onSubmit(e: Event) {
     e.preventDefault()
-    console.log(this.form.value)
-    this.store.dispatch(registerRequestAction(this.form.value))
+    const request: RegisterRequest = { user: this.form.value }
+    this.store.dispatch(registerRequestAction({ request }))
   }
 
   ngOnInit(): void {
