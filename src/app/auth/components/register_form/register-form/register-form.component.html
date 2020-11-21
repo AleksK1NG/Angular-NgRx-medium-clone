@@ -1,25 +1,26 @@
 <div class="auth-page">
   <div class="container page">
+    {{ isSubmitting$ | async }}
     <div class="row">
       <div class="col-md-6 offset-md-3 col-xs-12">
-        <h1 class="text-cs-canter">Sign UP</h1>
-        <p class="text-cs-canter">
+        <h1 class="text-xs-center">SignUP</h1>
+        <p class="text-xs-center">
           <a [routerLink]="['/login']">Have an account ?</a>
         </p>
         Backend errors
         <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
           <fieldset>
             <fieldset class="form-group">
-              <input type="text" class="form-control form-control-lg" placeholder="Username" formControlName="username" />
+              <input type="text" class="form-control form-control-md" placeholder="Username" formControlName="username" />
             </fieldset>
             <fieldset class="form-group">
-              <input type="email" class="form-control form-control-lg" placeholder="Email" formControlName="email" />
+              <input type="email" class="form-control form-control-md" placeholder="Email" formControlName="email" />
             </fieldset>
             <fieldset class="form-group">
-              <input type="password" class="form-control form-control-lg" placeholder="Password" formControlName="password" />
+              <input type="password" class="form-control form-control-md" placeholder="Password" formControlName="password" />
             </fieldset>
 
-            <button [disabled]='form.invalid' class="btn btn-lg btn-primary pull-xs-right" type="submit">Sign UP</button>
+            <button [disabled]='form.invalid || (isSubmitting$ | async)' class="btn btn-md btn-primary pull-xs-right" type="submit">Signup</button>
           </fieldset>
         </form>
       </div>
