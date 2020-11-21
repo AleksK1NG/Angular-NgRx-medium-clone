@@ -9,7 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 import * as auth from './auth/store/authReducer'
 import { HttpClientModule } from '@angular/common/http';
-import { EffectsModule } from '@ngrx/effects'
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],

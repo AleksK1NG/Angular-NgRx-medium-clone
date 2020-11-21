@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { AuthService } from './services/auth.service'
 import { EffectsModule } from '@ngrx/effects'
 import { AuthEffects } from './store/authEffects'
+import { ErrorMessagesModule } from '../shared/modules/error-messages/error-messages.module'
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [RegisterFormComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule, EffectsModule.forFeature([AuthEffects])],
+  imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule, EffectsModule.forFeature([AuthEffects]), ErrorMessagesModule],
   exports: [RegisterFormComponent],
   providers: [AuthService],
 })

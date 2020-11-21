@@ -8,3 +8,7 @@ export interface CurrentUserInterface {
   image?: string | null
   token: string
 }
+
+export interface BackendErrorsInterface {
+  [key: string]: string[]
+}
