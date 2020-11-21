@@ -15,6 +15,8 @@ const authReducer = createReducer(
   on(registerRequestAction, (state, action) => ({
     ...state,
     isLoading: true,
+    isSubmitting: true,
+    validationErrors: null,
   })),
   on(registerSuccessAction, (state, action) => ({
     ...state,
@@ -29,7 +31,8 @@ const authReducer = createReducer(
     isLoading: false,
     currentUser: null,
     isLoggedIn: null,
-    validationErrors: action.error,
+    isSubmitting: false,
+    validationErrors: action.errors,
   }))
 )
 
