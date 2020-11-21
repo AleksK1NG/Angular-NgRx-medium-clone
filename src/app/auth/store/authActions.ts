@@ -1,8 +1,10 @@
 import { createAction, props } from '@ngrx/store'
 import { AuthActionTypes } from './authActionTypes'
 import { RegisterRequest } from './authInterfaces'
+import { CurrentUserInterface } from '../../shared/types/interfaces'
 
-// export const registerRequestAction = createAction(AuthActionTypes.REGISTER_REQUEST, props<RegisterRequest>())
-export const registerRequestAction = createAction(AuthActionTypes.REGISTER_REQUEST, (payload: RegisterRequest) => {
-  return payload
-})
+export const registerRequestAction = createAction(AuthActionTypes.REGISTER_REQUEST, props<{ request: RegisterRequest }>())
+
+export const registerSuccessAction = createAction(AuthActionTypes.REGISTER_SUCCESS, props<{ currentUser: CurrentUserInterface }>())
+
+export const registerErrorAction = createAction(AuthActionTypes.REGISTER_ERROR, props<{ error: any }>())

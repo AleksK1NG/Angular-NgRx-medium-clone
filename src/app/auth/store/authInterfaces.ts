@@ -1,15 +1,21 @@
 import { CurrentUserInterface } from '../../shared/types/interfaces'
 
 export interface RegisterRequest {
-  username: string
-  email: string
-  password: string
+  user: {
+    username: string
+    email: string
+    password: string
+  }
+}
+
+export interface AuthResponseInterface {
+  user: CurrentUserInterface
 }
 
 export interface AuthStateInterface {
   isSubmitting: boolean
   isLoading: boolean
   currentUser: CurrentUserInterface
-  validationErrors: any
+  validationErrors: Record<string, any> | null
   isLoggedIn: boolean
 }
