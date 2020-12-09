@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { AuthService } from './services/auth.service'
 import { EffectsModule } from '@ngrx/effects'
 import { AuthEffects } from './store/authEffects'
-import { ErrorMessagesModule } from '../shared/modules/error-messages/error-messages.module';
+import { ErrorMessagesModule } from '../shared/modules/error-messages/error-messages.module'
 import { LoginFormComponent } from './components/login-form/login-form.component'
 
 const routes: Routes = [
