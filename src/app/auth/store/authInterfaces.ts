@@ -19,3 +19,10 @@ export interface AuthStateInterface {
   validationErrors: BackendErrorsInterface | null
   isLoggedIn: boolean
 }
+
+export interface LoginRequest {
+  user: {
+    email: string
+    password: string
+  }
+}
