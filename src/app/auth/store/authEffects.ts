@@ -60,10 +60,21 @@ export class AuthEffects {
     )
   )
 
-  redirectUser$ = createEffect(
+  redirectRegisterUser$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(registerSuccessAction),
+        tap((res) => {
+          this.router.navigateByUrl('/')
+        })
+      ),
+    { dispatch: false }
+  )
+
+  redirectLoginUser$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(loginSuccessAction),
         tap((res) => {
           this.router.navigateByUrl('/')
         })
