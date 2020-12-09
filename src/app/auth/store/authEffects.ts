@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
-import { registerErrorAction, registerRequestAction, registerSuccessAction } from './authActions'
+import {
+  loginErrorAction,
+  loginRequestAction,
+  loginSuccessAction,
+  registerErrorAction,
+  registerRequestAction,
+  registerSuccessAction,
+} from './authActions'
 import { catchError, map, switchMap, tap } from 'rxjs/operators'
 import { AuthService } from '../services/auth.service'
 import { of } from 'rxjs'
@@ -29,6 +36,24 @@ export class AuthEffects {
           catchError((err: HttpErrorResponse) => {
             console.error(err)
             return of(registerErrorAction({ errors: err.error.errors }))
+          })
+        )
+      })
+    )
+  )
+
+  loginUserEffect$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loginRequestAction),
+      switchMap(({ request }) => {
+        return this.authService.loginUser(request).pipe(
+          map((response) => {
+            this.persistanceService.set('access-token', response.token)
+            return loginSuccessAction({ currentUser: response })
+          }),
+          catchError((err: HttpErrorResponse) => {
+            console.error(err)
+            return of(loginErrorAction({ errors: err.error.errors }))
           })
         )
       })
