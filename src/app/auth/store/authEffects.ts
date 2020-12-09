@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
 import {
+  getCurrentUserErrorAction,
+  getCurrentUserRequestAction,
+  getCurrentUserSuccessAction,
   loginErrorAction,
   loginRequestAction,
   loginSuccessAction,
@@ -54,6 +57,24 @@ export class AuthEffects {
           catchError((err: HttpErrorResponse) => {
             console.error(err)
             return of(loginErrorAction({ errors: err.error.errors }))
+          })
+        )
+      })
+    )
+  )
+
+  getCurrentUserEffect$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(getCurrentUserRequestAction),
+      switchMap(() => {
+        return this.authService.getCurrentUser().pipe(
+          map((response) => {
+            console.log('getCurrentUserEffect$ ', response)
+            return getCurrentUserSuccessAction({ currentUser: response })
+          }),
+          catchError((err: HttpErrorResponse) => {
+            console.error(err)
+            return of(getCurrentUserErrorAction())
           })
         )
       })
