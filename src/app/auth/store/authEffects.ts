@@ -67,6 +67,11 @@ export class AuthEffects {
     this.actions$.pipe(
       ofType(getCurrentUserRequestAction),
       switchMap(() => {
+        const token = this.persistanceService.get('access-token')
+        if (!token) {
+          return of(getCurrentUserErrorAction())
+        }
+
         return this.authService.getCurrentUser().pipe(
           map((response) => {
             console.log('getCurrentUserEffect$ ', response)
