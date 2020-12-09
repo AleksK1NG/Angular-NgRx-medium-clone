@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
 import { registerErrorAction, registerRequestAction, registerSuccessAction } from './authActions'
-import { catchError, map, switchMap } from 'rxjs/operators'
+import { catchError, map, switchMap, tap } from 'rxjs/operators'
 import { AuthService } from '../services/auth.service'
 import { of } from 'rxjs'
 import { HttpErrorResponse } from '@angular/common/http'
 import { PersistenceService } from '../../shared/services/persistence.service'
+import { Router } from '@angular/router'
 
 @Injectable()
 export class AuthEffects {
-  constructor(private actions$: Actions, private authService: AuthService, private persistanceService: PersistenceService) {}
+  constructor(
+    private actions$: Actions,
+    private authService: AuthService,
+    private persistanceService: PersistenceService,
+    private router: Router
+  ) {}
 
   registerUserEffect$ = createEffect(() =>
     this.actions$.pipe(
@@ -27,5 +33,16 @@ export class AuthEffects {
         )
       })
     )
+  )
+
+  redirectUser$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(registerSuccessAction),
+        tap((res) => {
+          this.router.navigateByUrl('/')
+        })
+      ),
+    { dispatch: false }
   )
 }
