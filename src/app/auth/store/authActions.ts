@@ -11,4 +11,9 @@ export const loginRequestAction = createAction(AuthActionTypes.LOGIN_REQUEST, pr
 export const loginSuccessAction = createAction(AuthActionTypes.LOGIN_SUCCESS, props<{ currentUser: CurrentUserInterface }>())
 export const loginErrorAction = createAction(AuthActionTypes.LOGIN_ERROR, props<{ errors: BackendErrorsInterface }>())
 
-
+export const getCurrentUserRequestAction = createAction(AuthActionTypes.GET_CURRENT_USER_REQUEST)
+export const getCurrentUserSuccessAction = createAction(
+  AuthActionTypes.GET_CURRENT_USER_SUCCESS,
+  props<{ currentUser: CurrentUserInterface }>()
+)
+export const getCurrentUserErrorAction = createAction(AuthActionTypes.GET_CURRENT_USER_ERROR)
