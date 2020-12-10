@@ -1,4 +1,4 @@
-export interface CurrentUserInterface {
+export interface CurrentUser {
   id: number
   email: string
   createdAt: string
@@ -9,11 +9,11 @@ export interface CurrentUserInterface {
   token: string
 }
 
-export interface BackendErrorsInterface {
+export interface BackendErrors {
   [key: string]: string[]
 }
 
-export interface ArticleInterface {
+export interface Article {
   title: string
   slug: string
   body: string
@@ -21,12 +21,12 @@ export interface ArticleInterface {
   updatedAt: string
   tagList: PopularTagType[]
   description: string
-  author: ProfileInterface
+  author: Profile
   favorited: boolean
   favoritesCount: number
 }
 
-export interface ProfileInterface {
+export interface Profile {
   username: string
   bio: string | null
   image: string

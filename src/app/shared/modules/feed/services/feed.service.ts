@@ -3,6 +3,7 @@ import { Observable } from 'rxjs'
 import { GetFeedResponse } from '../types/feed-interfaces'
 import { HttpClient } from '@angular/common/http'
 import { tap } from 'rxjs/operators'
+import { environment } from '../../../../../environments/environment'
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ export class FeedService {
   constructor(private httpClient: HttpClient) {}
 
   getFeed(url: string): Observable<GetFeedResponse> {
-    return this.httpClient.get<GetFeedResponse>('').pipe(tap((data) => console.log('res ', data)))
+    const fullUrl = environment.apiUrl + url
+    return this.httpClient.get<GetFeedResponse>(fullUrl).pipe(tap((data) => console.log('res ', data)))
   }
 }

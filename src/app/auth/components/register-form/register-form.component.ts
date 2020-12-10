@@ -5,7 +5,7 @@ import { registerRequestAction } from '../../store/authActions'
 import { authErrorsSelector, isSubmittingSelector } from '../../store/authSelectors'
 import { Observable } from 'rxjs'
 import { RegisterRequest } from '../../store/authInterfaces'
-import { BackendErrorsInterface } from '../../../shared/types/interfaces'
+import { BackendErrors } from '../../../shared/types/interfaces'
 
 @Component({
   selector: 'app-register-form',
@@ -16,7 +16,7 @@ export class RegisterFormComponent implements OnInit, OnChanges {
   constructor(private fb: FormBuilder, private store: Store) {}
   form: FormGroup
   isSubmitting$: Observable<boolean>
-  backendErrors$: Observable<BackendErrorsInterface> | null
+  backendErrors$: Observable<BackendErrors> | null
 
   initializeForm() {
     this.form = this.fb.group({

@@ -2,7 +2,7 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
-import { BackendErrorsInterface } from '../../../shared/types/interfaces'
+import { BackendErrors } from '../../../shared/types/interfaces'
 import { authErrorsSelector, isSubmittingSelector } from '../../store/authSelectors'
 import { LoginRequest } from '../../store/authInterfaces'
 import { loginRequestAction } from '../../store/authActions'
@@ -16,7 +16,7 @@ export class LoginFormComponent implements OnInit, OnChanges {
   constructor(private fb: FormBuilder, private store: Store) {}
   form: FormGroup
   isSubmitting$: Observable<boolean>
-  backendErrors$: Observable<BackendErrorsInterface> | null
+  backendErrors$: Observable<BackendErrors> | null
 
   initializeForm() {
     this.form = this.fb.group({

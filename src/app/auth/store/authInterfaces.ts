@@ -1,4 +1,4 @@
-import { BackendErrorsInterface, CurrentUserInterface } from '../../shared/types/interfaces'
+import { BackendErrors, CurrentUser } from '../../shared/types/interfaces'
 
 export interface RegisterRequest {
   user: {
@@ -8,15 +8,15 @@ export interface RegisterRequest {
   }
 }
 
-export interface AuthResponseInterface {
-  user: CurrentUserInterface
+export interface AuthResponse {
+  user: CurrentUser
 }
 
-export interface AuthStateInterface {
+export interface AuthState {
   isSubmitting: boolean
   isLoading: boolean
-  currentUser: CurrentUserInterface | null
-  validationErrors: BackendErrorsInterface | null
+  currentUser: CurrentUser | null
+  validationErrors: BackendErrors | null
   isLoggedIn: boolean
 }
 
