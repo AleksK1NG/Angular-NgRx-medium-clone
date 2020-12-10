@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { BackendErrorsInterface } from '../../../../types/interfaces'
+import { BackendErrors } from '../../../../types/interfaces'
 
 @Component({
   selector: 'app-error-message',
@@ -8,7 +8,7 @@ import { BackendErrorsInterface } from '../../../../types/interfaces'
 })
 export class ErrorMessageComponent implements OnInit {
   constructor() {}
-  @Input() errors: BackendErrorsInterface | null
+  @Input() errors: BackendErrors | null
   errorMessages: string[]
 
   ngOnInit(): void {

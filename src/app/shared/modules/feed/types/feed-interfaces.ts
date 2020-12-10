@@ -1,6 +1,6 @@
-import { ArticleInterface } from '../../../types/interfaces'
+import { Article } from '../../../types/interfaces'
 
 export interface GetFeedResponse {
-  articles: ArticleInterface[]
+  articles: Article[]
   articlesCount: number
 }

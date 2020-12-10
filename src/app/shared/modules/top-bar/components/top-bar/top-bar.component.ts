@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
-import { CurrentUserInterface } from '../../../../types/interfaces'
+import { CurrentUser } from '../../../../types/interfaces'
 import { isAnonymousSelector, isLoggedInSelector, userSelector } from '../../../../../auth/store/authSelectors'
 
 @Component({
@@ -14,7 +14,7 @@ export class TopBarComponent implements OnInit {
 
   isLoggedIn$: Observable<boolean>
   isAnonymous$: Observable<boolean>
-  currentUser$: Observable<CurrentUserInterface | null>
+  currentUser$: Observable<CurrentUser | null>
 
   ngOnInit(): void {
     this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector))
