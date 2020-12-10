@@ -9,6 +9,7 @@ import { FeedService } from './services/feed.service'
 import { RouterModule } from '@angular/router'
 import { ErrorMessagesModule } from '../backend-error-messages/error-messages.module'
 import { LoadingModule } from '../loading/loading.module'
+import { PaginationModule } from '../pagination/pagination.module'
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { LoadingModule } from '../loading/loading.module'
     RouterModule,
     ErrorMessagesModule,
     LoadingModule,
+    PaginationModule,
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],

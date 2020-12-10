@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'https://conduit.productionready.io/api',
-  appName: 'medium-clone'
+  appName: 'medium-clone',
+  limit: 10
 }
 
 /*

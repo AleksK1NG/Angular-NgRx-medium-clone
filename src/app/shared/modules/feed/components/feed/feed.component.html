@@ -21,5 +21,6 @@
       HERE list of tags
     </a>
   </div>
-  PAGINATION HERE
+
+  <app-pagination [totalCount]="(feed$ | async)?.articlesCount" [limit]="10" [url]="'baseUrl'" [currentPage]="1"></app-pagination>
 </div>
