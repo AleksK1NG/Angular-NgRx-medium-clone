@@ -5,5 +5,6 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
 @NgModule({
   declarations: [ErrorMessageComponent],
   imports: [CommonModule],
+  exports: [ErrorMessageComponent],
 })
 export class ErrorMessageModule {}

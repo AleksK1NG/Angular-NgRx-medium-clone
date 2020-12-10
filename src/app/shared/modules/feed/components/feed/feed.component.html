@@ -1,4 +1,4 @@
-<div *ngIf="isLoading$ | async">Loading...</div>
+<app-loading *ngIf="isLoading$ | async"></app-loading>
 <app-error-message *ngIf="error$ | async"></app-error-message>
 
 <div *ngIf="feed$ | async">
