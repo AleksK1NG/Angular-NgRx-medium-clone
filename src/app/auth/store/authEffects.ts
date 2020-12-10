@@ -74,7 +74,6 @@ export class AuthEffects {
 
         return this.authService.getCurrentUser().pipe(
           map((response) => {
-            console.log('getCurrentUserEffect$ ', response)
             return getCurrentUserSuccessAction({ currentUser: response })
           }),
           catchError((err: HttpErrorResponse) => {

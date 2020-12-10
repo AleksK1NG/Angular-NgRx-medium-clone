@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects'
 import { TopBarModule } from './shared/modules/top-bar/top-bar.module'
 import { PersistenceService } from './shared/services/persistence.service'
 import { AuthInterceptorService } from './shared/services/auth-interceptor.service'
+import { GlobalFeedModule } from './global-feed/global-feed.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { AuthInterceptorService } from './shared/services/auth-interceptor.servi
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
     TopBarModule,
+    GlobalFeedModule,
   ],
   providers: [PersistenceService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent],
