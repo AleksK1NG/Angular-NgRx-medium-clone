@@ -4,7 +4,7 @@
       <a [routerLink]="['/feed']" class="nav-link" routerLinkActive="active">Your feed</a>
     </li>
     <li class="nav-item">
-      <a [routerLink]="['/']" class="nav-link" routerLinkActive="active">Global feed</a>
+      <a [routerLink]="['/']" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Global feed</a>
     </li>
     <li class="nav-item" *ngIf="tagName">
       <a [routerLink]="['/tags', tagName]" class="nav-link" routerLinkActive="active">{{ tagName }}</a>

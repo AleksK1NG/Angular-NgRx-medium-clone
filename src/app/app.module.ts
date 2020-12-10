@@ -14,6 +14,7 @@ import { PersistenceService } from './shared/services/persistence.service'
 import { AuthInterceptorService } from './shared/services/auth-interceptor.service'
 import { GlobalFeedModule } from './global-feed/global-feed.module'
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store'
+import { YourFeedModule } from './your-feed/your-feed.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store'
     TopBarModule,
     GlobalFeedModule,
     StoreRouterConnectingModule.forRoot(),
+    YourFeedModule,
   ],
   providers: [PersistenceService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent],
