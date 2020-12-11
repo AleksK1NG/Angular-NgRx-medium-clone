@@ -1,14 +1,28 @@
 import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
 import { ArticleService as SharedArticleService } from '../../shared/services/article.service'
-import { catchError, map, switchMap } from 'rxjs/operators'
+import { catchError, map, switchMap, tap } from 'rxjs/operators'
 import { HttpErrorResponse } from '@angular/common/http'
 import { of } from 'rxjs'
-import { getArticleErrorAction, getArticleRequestAction, getArticleSuccessAction } from './articleActions'
+import {
+  deleteArticleErrorAction,
+  deleteArticleRequestAction,
+  deleteArticleSuccessAction,
+  getArticleErrorAction,
+  getArticleRequestAction,
+  getArticleSuccessAction,
+} from './articleActions'
+import { ArticleService } from '../services/article.service'
+import { Router } from '@angular/router'
 
 @Injectable()
 export class ArticleEffects {
-  constructor(private actions$: Actions, private sharedArticleService: SharedArticleService) {}
+  constructor(
+    private actions$: Actions,
+    private sharedArticleService: SharedArticleService,
+    private articleService: ArticleService,
+    private router: Router
+  ) {}
 
   getArticleEffect$ = createEffect(() =>
     this.actions$.pipe(
@@ -25,5 +39,33 @@ export class ArticleEffects {
         )
       })
     )
+  )
+
+  deleteArticleEffect$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(deleteArticleRequestAction),
+      switchMap(({ slug }) => {
+        return this.articleService.deleteArticle(slug).pipe(
+          map((response) => {
+            return deleteArticleSuccessAction()
+          }),
+          catchError((err: HttpErrorResponse) => {
+            console.error(err)
+            return of(deleteArticleErrorAction())
+          })
+        )
+      })
+    )
+  )
+
+  redirectAfterDeleteUser$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(deleteArticleSuccessAction),
+        tap((res) => {
+          this.router.navigateByUrl('/')
+        })
+      ),
+    { dispatch: false }
   )
 }
