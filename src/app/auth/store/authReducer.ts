@@ -87,6 +87,7 @@ const authReducer = createReducer(
   })),
   on(updateUserRequestAction, (state, action) => ({
     ...state,
+    isSubmitting: true,
     isLoading: true,
   })),
   on(updateUserSuccessAction, (state, action) => ({
@@ -94,12 +95,14 @@ const authReducer = createReducer(
     isLoading: false,
     currentUser: action.currentUser,
     isLoggedIn: true,
+    isSubmitting: false,
   })),
   on(updateUserErrorAction, (state, action) => ({
     ...state,
     isLoading: false,
     isLoggedIn: false,
     currentUser: null,
+    isSubmitting: false,
   }))
 )
 
