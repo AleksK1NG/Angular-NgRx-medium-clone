@@ -22,4 +22,13 @@ export class PersistenceService {
       return null
     }
   }
+
+  delete(key: string): any {
+    try {
+      return localStorage.removeItem(key)
+    } catch (e) {
+      console.error('Error removing data from localStorage', e)
+      return null
+    }
+  }
 }
