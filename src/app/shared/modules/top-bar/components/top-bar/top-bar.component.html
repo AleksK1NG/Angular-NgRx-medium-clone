@@ -14,7 +14,8 @@
         </li>
         <li class="nav-item">
           <a [routerLink]="['/profiles', (currentUser$ | async).username]" class="nav-link"
-            ><img [src]="(currentUser$ | async).image" alt="avatar" class="user-pic" />&nbsp; {{ (currentUser$ | async).username }}</a
+            ><img [src]="(currentUser$ | async).image" alt="avatar" class="user-pic" *ngIf="(currentUser$ | async).image" />&nbsp;
+            {{ (currentUser$ | async).username }}</a
           >
         </li>
       </ng-container>

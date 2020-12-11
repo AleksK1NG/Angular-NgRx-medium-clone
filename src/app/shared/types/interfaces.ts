@@ -34,3 +34,7 @@ export interface Profile {
 }
 
 export type PopularTagType = string
+
+export interface GetArticleResponse {
+  article: Article
+}
