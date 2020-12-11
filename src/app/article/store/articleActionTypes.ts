@@ -1,0 +1,5 @@
+export enum ArticleActionTypes {
+  GET_ARTICLE_REQUEST = '[Article] GET_ARTICLE_REQUEST',
+  GET_ARTICLE_SUCCESS = '[Article] GET_ARTICLE_SUCCESS',
+  GET_ARTICLE_ERROR = '[Article] GET_ARTICLE_ERROR',
+}
