@@ -45,3 +45,7 @@ export interface ArticleForm {
   body: string
   tagList: string[]
 }
+
+export interface CreateArticleResponse {
+  article: Article
+}
