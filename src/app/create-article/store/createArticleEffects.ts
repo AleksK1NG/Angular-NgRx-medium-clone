@@ -33,7 +33,7 @@ export class CreateArticleEffects {
       this.actions$.pipe(
         ofType(createArticleSuccessAction),
         tap((res) => {
-          this.router.navigate(['/article', res.article.slug])
+          this.router.navigate(['/articles', res.article.slug])
         })
       ),
     { dispatch: false }
