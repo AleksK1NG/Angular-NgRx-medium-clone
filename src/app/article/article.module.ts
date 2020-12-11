@@ -6,11 +6,23 @@ import { ArticleEffects } from './store/articleEffects'
 import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/articleReducer'
 import { ArticleService as SharedArticleService } from '../shared/services/article.service'
+import { RouterModule, Routes } from '@angular/router'
+
+const routes: Routes = [
+  {
+    path: 'articles/:slug',
+    component: ArticleComponent,
+  },
+]
 
 @NgModule({
-  imports: [CommonModule, EffectsModule.forFeature([ArticleEffects]), StoreModule.forFeature('articles', reducers)],
+  imports: [
+    CommonModule,
+    EffectsModule.forFeature([ArticleEffects]),
+    StoreModule.forFeature('articles', reducers),
+    RouterModule.forChild(routes),
+  ],
   declarations: [ArticleComponent],
-  exports: [ArticleComponent],
   providers: [SharedArticleService],
 })
 export class ArticleModule {}
