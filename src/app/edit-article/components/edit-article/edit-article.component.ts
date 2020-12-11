@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core'
+import { Observable } from 'rxjs'
+import { Article, ArticleForm, BackendErrors } from '../../../shared/types/interfaces'
+import { select, Store } from '@ngrx/store'
+import { ActivatedRoute } from '@angular/router'
+import { editArticleRequestAction, getArticleRequestAction } from '../../store/editArticleActions'
+import { articleSelector, errorsSelector, isLoadingSelector, isSubmittingSelector } from '../../store/editArticleSelectors'
+import { filter, map } from 'rxjs/operators'
 
 @Component({
   selector: 'app-edit-article',
@@ -6,7 +13,43 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./edit-article.component.scss'],
 })
 export class EditArticleComponent implements OnInit {
-  constructor() {}
+  initialValues$: Observable<ArticleForm>
+  isSubmitting$: Observable<boolean>
+  isLoading$: Observable<boolean>
+  backendErrors$: Observable<BackendErrors | null>
+  slug: string
 
-  ngOnInit(): void {}
+  constructor(private store: Store, private route: ActivatedRoute) {}
+
+  initialValues(): void {
+    this.slug = this.route.snapshot.paramMap.get('slug')
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
+    this.isLoading$ = this.store.pipe(select(isLoadingSelector))
+    this.backendErrors$ = this.store.pipe(select(errorsSelector))
+    this.initialValues$ = this.store.pipe(
+      select(articleSelector),
+      filter(Boolean),
+      map((article: Article) => {
+        return {
+          title: article.title,
+          description: article.description,
+          body: article.body,
+          tagList: article.tagList,
+        }
+      })
+    )
+  }
+
+  fetchData(): void {
+    this.store.dispatch(getArticleRequestAction({ slug: this.slug }))
+  }
+
+  onSubmit(article: ArticleForm): void {
+    this.store.dispatch(editArticleRequestAction({ slug: this.slug, article }))
+  }
+
+  ngOnInit(): void {
+    this.initialValues()
+    this.fetchData()
+  }
 }
