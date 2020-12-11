@@ -7,7 +7,7 @@ import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/feedReducer'
 import { FeedService } from './services/feed.service'
 import { RouterModule } from '@angular/router'
-import { ErrorMessagesModule } from '../backend-error-messages/error-messages.module'
+import { BackendErrorMessagesModule } from '../backend-error-messages/backend-error-messages.module'
 import { LoadingModule } from '../loading/loading.module'
 import { PaginationModule } from '../pagination/pagination.module'
 import { TagListModule } from '../tag-list/tag-list.module'
@@ -18,7 +18,7 @@ import { TagListModule } from '../tag-list/tag-list.module'
     EffectsModule.forFeature([FeedEffects]),
     StoreModule.forFeature('feed', reducers),
     RouterModule,
-    ErrorMessagesModule,
+    BackendErrorMessagesModule,
     LoadingModule,
     PaginationModule,
     TagListModule

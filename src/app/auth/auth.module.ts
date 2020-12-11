@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { AuthService } from './services/auth.service'
 import { EffectsModule } from '@ngrx/effects'
 import { AuthEffects } from './store/authEffects'
-import { ErrorMessagesModule } from '../shared/modules/backend-error-messages/error-messages.module'
+import { BackendErrorMessagesModule } from '../shared/modules/backend-error-messages/backend-error-messages.module'
 import { LoginFormComponent } from './components/login-form/login-form.component'
 import { TagListModule } from '../shared/modules/tag-list/tag-list.module'
 
@@ -28,7 +28,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     EffectsModule.forFeature([AuthEffects]),
-    ErrorMessagesModule,
+    BackendErrorMessagesModule,
     TagListModule,
   ],
   exports: [RegisterFormComponent],
