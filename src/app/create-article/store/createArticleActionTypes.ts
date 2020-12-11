@@ -1,0 +1,5 @@
+export enum CreateArticleActionTypes {
+  CREATE_ARTICLE_REQUEST = '[CreateArticle] CREATE_ARTICLE_REQUEST',
+  CREATE_ARTICLE_SUCCESS = '[CreateArticle] CREATE_ARTICLE_SUCCESS',
+  CREATE_ARTICLE_ERROR = '[CreateArticle] CREATE_ARTICLE_ERROR',
+}
