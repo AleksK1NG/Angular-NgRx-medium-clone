@@ -5,7 +5,7 @@ import { Observable, Subscription } from 'rxjs'
 import { select, Store } from '@ngrx/store'
 import { authErrorsSelector, isSubmittingSelector, userSelector } from '../../../auth/store/authSelectors'
 import { filter } from 'rxjs/operators'
-import { updateUserRequestAction } from '../../../auth/store/authActions'
+import { logoutUserAction, updateUserRequestAction } from '../../../auth/store/authActions'
 
 @Component({
   selector: 'app-settings',
@@ -51,7 +51,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   logout(): void {
-    // this.store.dispatch(logoutAction())
+    this.store.dispatch(logoutUserAction())
   }
 
   ngOnInit(): void {

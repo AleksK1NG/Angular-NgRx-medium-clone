@@ -7,6 +7,7 @@ import {
   loginErrorAction,
   loginRequestAction,
   loginSuccessAction,
+  logoutUserAction,
   registerErrorAction,
   registerRequestAction,
   registerSuccessAction,
@@ -103,6 +104,11 @@ const authReducer = createReducer(
     isLoggedIn: false,
     currentUser: null,
     isSubmitting: false,
+  })),
+  on(logoutUserAction, (state, action) => ({
+    ...state,
+    currentUser: null,
+    isLoggedIn: false,
   }))
 )
 

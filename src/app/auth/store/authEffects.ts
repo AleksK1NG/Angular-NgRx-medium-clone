@@ -7,6 +7,7 @@ import {
   loginErrorAction,
   loginRequestAction,
   loginSuccessAction,
+  logoutUserAction,
   registerErrorAction,
   registerRequestAction,
   registerSuccessAction,
@@ -103,6 +104,18 @@ export class AuthEffects {
         )
       })
     )
+  )
+
+  logoutUser$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(logoutUserAction),
+        tap((res) => {
+          this.persistanceService.delete('access-token')
+          this.router.navigateByUrl('/')
+        })
+      ),
+    { dispatch: false }
   )
 
   redirectRegisterUser$ = createEffect(
