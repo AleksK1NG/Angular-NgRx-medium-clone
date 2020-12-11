@@ -1,1 +1,8 @@
-<p>edit-article works!</p>
+<app-loading *ngIf="isLoading$ | async"></app-loading>
+<app-article-form
+  *ngIf="initialValues$ | async"
+  [errors]="backendErrors$ | async"
+  [isSubmitting]="isSubmitting$ | async"
+  [initialValues]="initialValues$ | async"
+  (articleSubmitEvent)="onSubmit($event)"
+></app-article-form>

@@ -6,9 +6,29 @@ import { ArticleService as SharedArticleService } from '../shared/services/artic
 import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/editArticleReducer'
 import { ArticleModule } from '../article/article.module'
+import { LoadingModule } from '../shared/modules/loading/loading.module'
+import { ArticleFormModule } from '../shared/modules/article-form/article-form.module'
+import { RouterModule, Routes } from '@angular/router'
+import { EffectsModule } from '@ngrx/effects'
+import { EditArticleEffects } from './store/editArticleEffects'
+
+const routes: Routes = [
+  {
+    path: 'articles/:slug/edit',
+    component: EditArticleComponent,
+  },
+]
 
 @NgModule({
-  imports: [CommonModule, StoreModule.forFeature('editArticle', reducers), ArticleModule, ],
+  imports: [
+    CommonModule,
+    StoreModule.forFeature('editArticle', reducers),
+    EffectsModule.forFeature([EditArticleEffects]),
+    ArticleModule,
+    LoadingModule,
+    ArticleFormModule,
+    RouterModule.forChild(routes),
+  ],
   declarations: [EditArticleComponent],
   providers: [EditArticleService, SharedArticleService],
 })
