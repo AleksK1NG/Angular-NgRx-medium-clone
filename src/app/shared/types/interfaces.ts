@@ -38,3 +38,10 @@ export type PopularTagType = string
 export interface GetArticleResponse {
   article: Article
 }
+
+export interface ArticleForm {
+  title: string
+  description: string
+  body: string
+  tagList: string[]
+}
