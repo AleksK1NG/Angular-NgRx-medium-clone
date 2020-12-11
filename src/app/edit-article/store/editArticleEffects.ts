@@ -13,7 +13,6 @@ import {
   getArticleRequestAction,
   getArticleSuccessAction,
 } from './editArticleActions'
-import { createArticleSuccessAction } from '../../create-article/store/createArticleActions'
 import { ArticleService } from '../../shared/services/article.service'
 
 @Injectable()
@@ -62,7 +61,7 @@ export class EditArticleEffects {
   redirectAfterEditArticle$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(createArticleSuccessAction),
+        ofType(editArticleSuccessAction),
         tap((res) => {
           this.router.navigate(['/articles', res.article.slug])
         })
