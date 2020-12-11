@@ -1,6 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core'
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core'
 import { ArticleForm, BackendErrors } from '../../../../types/interfaces'
-import { EventEmitter } from 'events'
 import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
@@ -25,10 +24,10 @@ export class ArticleFormComponent implements OnInit {
 
   initializeForm() {
     this.form = this.fb.group({
-      title: '',
-      description: '',
-      body: '',
-      tagList: '',
+      title: this.initialValues.title,
+      description: this.initialValues.description,
+      body: this.initialValues.body,
+      tagList: this.initialValues.tagList.join(' '),
     })
   }
 
