@@ -11,6 +11,7 @@ import { BackendErrorMessagesModule } from '../backend-error-messages/backend-er
 import { LoadingModule } from '../loading/loading.module'
 import { PaginationModule } from '../pagination/pagination.module'
 import { TagListModule } from '../tag-list/tag-list.module'
+import { LikesModule } from '../likes/likes.module'
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { TagListModule } from '../tag-list/tag-list.module'
     BackendErrorMessagesModule,
     LoadingModule,
     PaginationModule,
-    TagListModule
+    TagListModule,
+    LikesModule
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],
