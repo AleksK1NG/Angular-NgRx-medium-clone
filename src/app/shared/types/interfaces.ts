@@ -9,6 +9,10 @@ export interface CurrentUser {
   token: string
 }
 
+export interface UserProfile extends CurrentUser {
+  password: string
+}
+
 export interface BackendErrors {
   [key: string]: string[]
 }

@@ -10,6 +10,9 @@ import {
   registerErrorAction,
   registerRequestAction,
   registerSuccessAction,
+  updateUserErrorAction,
+  updateUserRequestAction,
+  updateUserSuccessAction,
 } from './authActions'
 import { catchError, map, switchMap, tap } from 'rxjs/operators'
 import { AuthService } from '../services/auth.service'
@@ -85,10 +88,38 @@ export class AuthEffects {
     )
   )
 
+  updateUserEffect$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(updateUserRequestAction),
+      switchMap(({ currentUser }) => {
+        return this.authService.updateCurrentUser(currentUser).pipe(
+          map((response) => {
+            return updateUserSuccessAction({ currentUser: response })
+          }),
+          catchError((err: HttpErrorResponse) => {
+            console.error(err)
+            return of(updateUserErrorAction({ errors: err.error.errors }))
+          })
+        )
+      })
+    )
+  )
+
   redirectRegisterUser$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(registerSuccessAction),
+        tap((res) => {
+          this.router.navigateByUrl('/')
+        })
+      ),
+    { dispatch: false }
+  )
+
+  redirectUpdateUser$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(updateUserSuccessAction),
         tap((res) => {
           this.router.navigateByUrl('/')
         })
