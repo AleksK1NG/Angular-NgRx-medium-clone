@@ -1,1 +1,34 @@
-<p>article-form works!</p>
+<div class="editor-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 col-xs-12">
+        <app-backend-error-message [errors]="errors" *ngIf="errors"></app-backend-error-message>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <fieldset>
+            <fieldset class="form-group">
+              <input type="text" class="form-control form-control" placeholder="Article title" formControlName="title" />
+            </fieldset>
+            <fieldset class="form-group">
+              <input type="text" class="form-control form-control" placeholder="Description" formControlName="description" />
+            </fieldset>
+            <fieldset class="form-group">
+              <textarea
+                rows="8"
+                class="form-control form-control"
+                placeholder="Write your article in markdown"
+                formControlName="body"
+              ></textarea>
+            </fieldset>
+            <fieldset class="form-group">
+              <input type="text" class="form-control form-control" placeholder="Enter tags" formControlName="tagList" />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <button type="submit" class="btn pull-xs-right btn-primary" [disabled]="form.invalid || isSubmitting">Publish Article</button>
+            </fieldset>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

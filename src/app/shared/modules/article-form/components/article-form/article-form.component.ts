@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnInit, Output } from '@angular/core'
 import { ArticleForm, BackendErrors } from '../../../../types/interfaces'
+import { EventEmitter } from 'events'
+import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-article-form',
@@ -11,7 +13,26 @@ export class ArticleFormComponent implements OnInit {
   @Input() isSubmitting: boolean
   @Input() errors: BackendErrors | null
 
-  constructor() {}
+  @Output() articleSubmitEvent = new EventEmitter<ArticleForm>()
 
-  ngOnInit(): void {}
+  form: FormGroup
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.initializeForm()
+  }
+
+  initializeForm() {
+    this.form = this.fb.group({
+      title: '',
+      description: '',
+      body: '',
+      tagList: '',
+    })
+  }
+
+  onSubmit() {
+    this.articleSubmitEvent.emit(this.form.value)
+  }
 }
