@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
-import { getArticleRequestAction } from '../../store/articleActions'
+import { deleteArticleRequestAction, getArticleRequestAction } from '../../store/articleActions'
 import { ActivatedRoute } from '@angular/router'
 import { Article } from '../../../shared/types/interfaces'
 import { combineLatest, Observable, Subscription } from 'rxjs'
@@ -55,5 +55,9 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.articleSubscription.unsubscribe()
+  }
+
+  deleteArticle() {
+    this.store.dispatch(deleteArticleRequestAction({ slug: this.slug }))
   }
 }
