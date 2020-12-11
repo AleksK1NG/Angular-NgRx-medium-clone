@@ -10,6 +10,9 @@ import {
   registerErrorAction,
   registerRequestAction,
   registerSuccessAction,
+  updateUserErrorAction,
+  updateUserRequestAction,
+  updateUserSuccessAction,
 } from './authActions'
 
 const initialState: AuthState = {
@@ -77,6 +80,22 @@ const authReducer = createReducer(
     isLoggedIn: true,
   })),
   on(getCurrentUserErrorAction, (state, action) => ({
+    ...state,
+    isLoading: false,
+    isLoggedIn: false,
+    currentUser: null,
+  })),
+  on(updateUserRequestAction, (state, action) => ({
+    ...state,
+    isLoading: true,
+  })),
+  on(updateUserSuccessAction, (state, action) => ({
+    ...state,
+    isLoading: false,
+    currentUser: action.currentUser,
+    isLoggedIn: true,
+  })),
+  on(updateUserErrorAction, (state, action) => ({
     ...state,
     isLoading: false,
     isLoggedIn: false,

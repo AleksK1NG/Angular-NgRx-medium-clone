@@ -14,3 +14,7 @@ export const loginErrorAction = createAction(AuthActionTypes.LOGIN_ERROR, props<
 export const getCurrentUserRequestAction = createAction(AuthActionTypes.GET_CURRENT_USER_REQUEST)
 export const getCurrentUserSuccessAction = createAction(AuthActionTypes.GET_CURRENT_USER_SUCCESS, props<{ currentUser: CurrentUser }>())
 export const getCurrentUserErrorAction = createAction(AuthActionTypes.GET_CURRENT_USER_ERROR)
+
+export const updateUserRequestAction = createAction(AuthActionTypes.UPDATE_USER_REQUEST, props<{ currentUser: CurrentUser }>())
+export const updateUserSuccessAction = createAction(AuthActionTypes.UPDATE_USER_SUCCESS, props<{ currentUser: CurrentUser }>())
+export const updateUserErrorAction = createAction(AuthActionTypes.UPDATE_USER_ERROR, props<{ errors: BackendErrors }>())
