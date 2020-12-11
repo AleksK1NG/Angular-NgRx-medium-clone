@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core'
-import { ArticleForm } from '../../../shared/types/interfaces'
+import { ArticleForm, BackendErrors } from '../../../shared/types/interfaces'
+import { Observable } from 'rxjs'
+import { select, Store } from '@ngrx/store'
+import { errorsSelector, isSubmittingSelector } from '../../store/createArticlesSelectors'
+import { createArticleRequestAction } from '../../store/createArticleActions'
 
 @Component({
   selector: 'app-create-article',
@@ -13,11 +17,18 @@ export class CreateArticleComponent implements OnInit {
     body: '',
     tagList: [],
   }
-  constructor() {}
+  isSubmitting$: Observable<boolean>
+  errors$: Observable<BackendErrors | null>
 
-  onSubmit(value: any) {
+  constructor(private store: Store) {}
+
+  onSubmit(value: ArticleForm) {
     console.log('submit form ', value)
+    this.store.dispatch(createArticleRequestAction({ article: value }))
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
+    this.errors$ = this.store.pipe(select(errorsSelector))
+  }
 }
