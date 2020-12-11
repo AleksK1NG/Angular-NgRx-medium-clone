@@ -8,6 +8,7 @@ import { EffectsModule } from '@ngrx/effects'
 import { AuthEffects } from './store/authEffects'
 import { ErrorMessagesModule } from '../shared/modules/backend-error-messages/error-messages.module'
 import { LoginFormComponent } from './components/login-form/login-form.component'
+import { TagListModule } from '../shared/modules/tag-list/tag-list.module'
 
 const routes: Routes = [
   {
@@ -22,7 +23,14 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [RegisterFormComponent, LoginFormComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule, EffectsModule.forFeature([AuthEffects]), ErrorMessagesModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
+    EffectsModule.forFeature([AuthEffects]),
+    ErrorMessagesModule,
+    TagListModule,
+  ],
   exports: [RegisterFormComponent],
   providers: [AuthService],
 })

@@ -3,8 +3,10 @@ import { select, Store } from '@ngrx/store'
 import { getArticleRequestAction } from '../../store/articleActions'
 import { ActivatedRoute } from '@angular/router'
 import { Article } from '../../../shared/types/interfaces'
-import { Observable, Subscription } from 'rxjs'
+import { combineLatest, Observable, Subscription } from 'rxjs'
 import { articleSelector, errorSelector, isLoadingSelector } from '../../store/articleSelectors'
+import { userSelector } from '../../../auth/store/authSelectors'
+import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'app-article',
@@ -17,11 +19,13 @@ export class ArticleComponent implements OnInit, OnDestroy {
   articleSubscription: Subscription
   isLoading$: Observable<boolean>
   error$: Observable<string | null>
+  isAuthor$: Observable<boolean>
 
   constructor(private store: Store, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.initializeValues()
+    this.initializeListeners()
     this.fetchData()
   }
 
@@ -35,6 +39,14 @@ export class ArticleComponent implements OnInit, OnDestroy {
     this.slug = this.route.snapshot.paramMap.get('slug')
     this.isLoading$ = this.store.pipe(select(isLoadingSelector))
     this.error$ = this.store.pipe(select(errorSelector))
+    console.log(11111)
+    this.isAuthor$ = combineLatest(this.store.pipe(select(articleSelector)), this.store.pipe(select(userSelector))).pipe(
+      map((value) => {
+        const [article, currentUser] = value
+        console.log('[article, currentUser] ', article?.author?.username === currentUser?.username)
+        return article?.author?.username === currentUser?.username
+      })
+    )
   }
 
   fetchData() {

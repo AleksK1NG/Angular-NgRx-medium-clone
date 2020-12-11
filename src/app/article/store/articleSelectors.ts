@@ -8,4 +8,4 @@ export const isLoadingSelector = createSelector(articleFeatureSelector, (article
 
 export const errorSelector = createSelector(articleFeatureSelector, (articleState) => articleState.error)
 
-export const articleSelector = createSelector(articleFeatureSelector, (articleState) => articleState.data)
+export const articleSelector = createSelector(articleFeatureSelector, (articleState) => articleState?.data)

@@ -7,6 +7,9 @@ import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/articleReducer'
 import { ArticleService as SharedArticleService } from '../shared/services/article.service'
 import { RouterModule, Routes } from '@angular/router'
+import { LoadingModule } from '../shared/modules/loading/loading.module'
+import { ErrorMessageModule } from '../shared/modules/error-message/error-message.module'
+import { TagListModule } from '../shared/modules/tag-list/tag-list.module'
 
 const routes: Routes = [
   {
@@ -19,8 +22,11 @@ const routes: Routes = [
   imports: [
     CommonModule,
     EffectsModule.forFeature([ArticleEffects]),
-    StoreModule.forFeature('articles', reducers),
+    StoreModule.forFeature('article', reducers),
     RouterModule.forChild(routes),
+    LoadingModule,
+    ErrorMessageModule,
+    TagListModule
   ],
   declarations: [ArticleComponent],
   providers: [SharedArticleService],
