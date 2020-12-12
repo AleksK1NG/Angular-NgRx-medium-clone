@@ -4,7 +4,7 @@ import { PopularTagsService } from '../services/popular-tags.service'
 import { catchError, map, switchMap } from 'rxjs/operators'
 import { HttpErrorResponse } from '@angular/common/http'
 import { of } from 'rxjs'
-import { getPopularTagsErrorAction, getPopularTagsRequestAction, getPopularTagsSuccessAction } from './popularTagsActions'
+import { getPopularTagsErrorAction, getPopularTagsRequestAction, getPopularTagsSuccessAction } from './popular-tags.actions'
 
 @Injectable()
 export class PopularTagsEffects {

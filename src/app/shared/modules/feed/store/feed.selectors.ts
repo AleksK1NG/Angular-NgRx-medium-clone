@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
 import { AppState } from '../../../types/appState'
-import { FeedState } from './feedReducer'
+import { FeedState } from './feed.reducer'
 
 export const feedFeatureSelector = createFeatureSelector<AppState, FeedState>('feed')
 

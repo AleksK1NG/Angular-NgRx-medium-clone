@@ -3,8 +3,8 @@ import { Observable } from 'rxjs'
 import { Article, ArticleForm, BackendErrors } from '../../../shared/types/interfaces'
 import { select, Store } from '@ngrx/store'
 import { ActivatedRoute } from '@angular/router'
-import { editArticleRequestAction, getArticleRequestAction } from '../../store/editArticleActions'
-import { articleSelector, errorsSelector, isLoadingSelector, isSubmittingSelector } from '../../store/editArticleSelectors'
+import { editArticleRequestAction, getArticleRequestAction } from '../../store/edit-article.actions'
+import { articleSelector, errorsSelector, isLoadingSelector, isSubmittingSelector } from '../../store/edit-article.selectors'
 import { filter, map } from 'rxjs/operators'
 
 @Component({

@@ -4,7 +4,7 @@ import { FeedService } from '../services/feed.service'
 import { catchError, map, switchMap } from 'rxjs/operators'
 import { of } from 'rxjs'
 import { HttpErrorResponse } from '@angular/common/http'
-import { getFeedErrorAction, getFeedRequestAction, getFeedSuccessAction } from './feedActions'
+import { getFeedErrorAction, getFeedRequestAction, getFeedSuccessAction } from './feed.actions'
 
 @Injectable()
 export class FeedEffects {

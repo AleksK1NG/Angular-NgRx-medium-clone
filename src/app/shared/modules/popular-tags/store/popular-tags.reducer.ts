@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store'
-import { getPopularTagsErrorAction, getPopularTagsRequestAction, getPopularTagsSuccessAction } from './popularTagsActions'
+import { getPopularTagsErrorAction, getPopularTagsRequestAction, getPopularTagsSuccessAction } from './popular-tags.actions'
 
 export interface PopularTagsState {
   data: string[] | null

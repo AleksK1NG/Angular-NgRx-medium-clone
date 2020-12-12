@@ -11,7 +11,7 @@ import {
   getArticleErrorAction,
   getArticleRequestAction,
   getArticleSuccessAction,
-} from './articleActions'
+} from './article.actions'
 import { ArticleService } from '../services/article.service'
 import { Router } from '@angular/router'
 

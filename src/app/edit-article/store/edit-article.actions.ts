@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store'
 import { Article, ArticleForm, BackendErrors } from '../../shared/types/interfaces'
-import { EditArticleActionTypes } from './editArticleActionTypes'
+import { EditArticleActionTypes } from './edit-article.action-types'
 
 export const editArticleRequestAction = createAction(
   EditArticleActionTypes.EDIT_ARTICLE_REQUEST,

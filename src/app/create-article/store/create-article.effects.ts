@@ -4,7 +4,7 @@ import { CreateArticleService } from '../services/create-article.service'
 import { catchError, map, switchMap, tap } from 'rxjs/operators'
 import { HttpErrorResponse } from '@angular/common/http'
 import { of } from 'rxjs'
-import { createArticleErrorAction, createArticleRequestAction, createArticleSuccessAction } from './createArticleActions'
+import { createArticleErrorAction, createArticleRequestAction, createArticleSuccessAction } from './create-article.actions'
 import { Router } from '@angular/router'
 
 @Injectable()

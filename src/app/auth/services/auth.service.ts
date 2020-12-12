@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { AuthResponse, LoginRequest, RegisterRequest } from '../store/authInterfaces'
+import { AuthResponse, LoginRequest, RegisterRequest } from '../store/auth.interfaces'
 import { Observable } from 'rxjs'
 import { CurrentUser } from '../../shared/types/interfaces'
 import { HttpClient } from '@angular/common/http'

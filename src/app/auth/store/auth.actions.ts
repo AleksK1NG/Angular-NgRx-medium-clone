@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store'
-import { AuthActionTypes } from './authActionTypes'
-import { LoginRequest, RegisterRequest } from './authInterfaces'
+import { AuthActionTypes } from './auth.action-types'
+import { LoginRequest, RegisterRequest } from './auth.interfaces'
 import { BackendErrors, CurrentUser } from '../../shared/types/interfaces'
 
 export const registerRequestAction = createAction(AuthActionTypes.REGISTER_REQUEST, props<{ request: RegisterRequest }>())

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import { GetFeedResponse } from '../types/feed-interfaces'
+import { GetFeedResponse } from '../types/feed.interfaces'
 import { HttpClient } from '@angular/common/http'
 import { environment } from '../../../../../environments/environment'
 

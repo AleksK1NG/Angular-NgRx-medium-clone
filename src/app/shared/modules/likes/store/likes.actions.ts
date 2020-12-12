@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store'
-import { LikesActionTypes } from './likesActionTypes'
+import { LikesActionTypes } from './likes.action-types'
 import { Article } from '../../../types/interfaces'
 
 export const addToFavoritesRequestAction = createAction(

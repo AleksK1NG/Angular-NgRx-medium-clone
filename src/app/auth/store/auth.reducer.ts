@@ -1,4 +1,4 @@
-import { AuthState } from './authInterfaces'
+import { AuthState } from './auth.interfaces'
 import { Action, createReducer, on } from '@ngrx/store'
 import {
   getCurrentUserErrorAction,
@@ -14,7 +14,7 @@ import {
   updateUserErrorAction,
   updateUserRequestAction,
   updateUserSuccessAction,
-} from './authActions'
+} from './auth.actions'
 
 const initialState: AuthState = {
   isSubmitting: false,

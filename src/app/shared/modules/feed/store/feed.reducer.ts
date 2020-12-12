@@ -1,6 +1,6 @@
-import { GetFeedResponse } from '../types/feed-interfaces'
+import { GetFeedResponse } from '../types/feed.interfaces'
 import { Action, createReducer, on } from '@ngrx/store'
-import { getFeedErrorAction, getFeedRequestAction, getFeedSuccessAction } from './feedActions'
+import { getFeedErrorAction, getFeedRequestAction, getFeedSuccessAction } from './feed.actions'
 import { routerNavigationAction } from '@ngrx/router-store'
 
 export interface FeedState {

@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
 import { AppState } from '../../shared/types/appState'
-import { EditArticleState } from './editArticleReducer'
+import { EditArticleState } from './edit-article.reducer'
 
 export const editArticleFeatureSelector = createFeatureSelector<AppState, EditArticleState>('editArticle')
 

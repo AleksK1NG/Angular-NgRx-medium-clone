@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
-import { getPopularTagsRequestAction } from '../../store/popularTagsActions'
+import { getPopularTagsRequestAction } from '../../store/popular-tags.actions'
 import { Observable } from 'rxjs'
-import { errorSelector, isLoadingSelector, popularTagsSelector } from '../../store/popularTagsSelectors'
+import { errorSelector, isLoadingSelector, popularTagsSelector } from '../../store/popular-tags.selectors'
 
 @Component({
   selector: 'app-popular-tags',

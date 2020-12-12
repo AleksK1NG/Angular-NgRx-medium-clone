@@ -1,6 +1,6 @@
 import { UserProfile } from '../../shared/types/interfaces'
 import { Action, createReducer, on } from '@ngrx/store'
-import { getProfileErrorAction, getProfileRequestAction, getProfileSuccessAction } from './profileActions'
+import { getProfileErrorAction, getProfileRequestAction, getProfileSuccessAction } from './profile.actions'
 
 export interface ProfileState {
   data: UserProfile | null
