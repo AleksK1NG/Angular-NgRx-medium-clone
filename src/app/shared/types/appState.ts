@@ -4,6 +4,7 @@ import { PopularTagsState } from '../modules/popular-tags/store/popularTagsReduc
 import { ArticleState } from '../../article/store/articleReducer'
 import { CreateArticleState } from '../../create-article/store/createArticleReducer'
 import { EditArticleState } from '../../edit-article/store/editArticleReducer'
+import { ProfileState } from '../../profile/store/profileReducer'
 
 export interface AppState {
   auth: AuthState
@@ -12,4 +13,5 @@ export interface AppState {
   article: ArticleState
   createArticle: CreateArticleState
   editArticle: EditArticleState
+  profile: ProfileState
 }
