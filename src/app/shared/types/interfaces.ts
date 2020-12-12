@@ -53,3 +53,14 @@ export interface ArticleForm {
 export interface CreateArticleResponse {
   article: Article
 }
+
+export interface UserProfile {
+  username: string
+  bio: string
+  image: string
+  following: boolean
+}
+
+export interface GetUserProfileResponse {
+  profile: UserProfile
+}
