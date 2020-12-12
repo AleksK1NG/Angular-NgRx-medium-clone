@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { Observable } from 'rxjs'
 import { select, Store } from '@ngrx/store'
 import { isLoggedInSelector } from '../../../../../auth/store/authSelectors'
@@ -8,11 +8,11 @@ import { isLoggedInSelector } from '../../../../../auth/store/authSelectors'
   templateUrl: './feed-toggler.component.html',
   styleUrls: ['./feed-toggler.component.scss'],
 })
-export class FeedTogglerComponent implements OnInit, OnChanges {
-  constructor(private store: Store) {}
+export class FeedTogglerComponent implements OnInit {
   @Input() tagName: string | null
-
   isLoggedIn: Observable<boolean>
+
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.initializeValues()
@@ -20,9 +20,5 @@ export class FeedTogglerComponent implements OnInit, OnChanges {
 
   initializeValues() {
     this.isLoggedIn = this.store.pipe(select(isLoggedInSelector))
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('changes ', changes)
   }
 }

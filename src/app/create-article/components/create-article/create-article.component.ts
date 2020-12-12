@@ -23,7 +23,6 @@ export class CreateArticleComponent implements OnInit {
   constructor(private store: Store) {}
 
   onSubmit(value: ArticleForm) {
-    console.log('submit form ', value)
     this.store.dispatch(createArticleRequestAction({ article: value }))
   }
 

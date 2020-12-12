@@ -7,8 +7,6 @@ import { UtilsService } from '../../../../services/utils.service'
   styleUrls: ['./pagination.component.scss'],
 })
 export class PaginationComponent implements OnInit {
-  constructor(private utilsService: UtilsService) {}
-
   pagesCount = 0
   pages: number[]
 
@@ -16,6 +14,8 @@ export class PaginationComponent implements OnInit {
   @Input() limit: number
   @Input() url: string
   @Input() currentPage: number
+
+  constructor(private utilsService: UtilsService) {}
 
   ngOnInit(): void {
     this.pagesCount = Math.ceil(this.totalCount / this.limit)

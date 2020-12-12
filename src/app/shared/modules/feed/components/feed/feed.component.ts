@@ -14,7 +14,6 @@ import { parseUrl, stringify } from 'query-string'
   styleUrls: ['./feed.component.scss'],
 })
 export class FeedComponent implements OnInit, OnDestroy, OnChanges {
-  constructor(private store: Store, private router: Router, private route: ActivatedRoute) {}
   @Input() apiUrl: string
 
   isLoading$: Observable<boolean>
@@ -24,6 +23,8 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   baseUrl: string
   queryParamsSubscription: Subscription
   currentPage: number
+
+  constructor(private store: Store, private router: Router, private route: ActivatedRoute) {}
 
   fetchData() {
     const offset = this.currentPage * this.limit - this.limit

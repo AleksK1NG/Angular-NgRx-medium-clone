@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
@@ -12,7 +12,7 @@ import { loginRequestAction } from '../../store/authActions'
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
 })
-export class LoginFormComponent implements OnInit, OnChanges {
+export class LoginFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private store: Store) {}
   form: FormGroup
   isSubmitting$: Observable<boolean>
@@ -35,9 +35,5 @@ export class LoginFormComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.initializeForm()
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('on change ', changes)
   }
 }
