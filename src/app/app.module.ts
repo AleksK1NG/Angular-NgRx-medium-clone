@@ -21,6 +21,7 @@ import { CreateArticleModule } from './create-article/create-article.module'
 import { EditArticleModule } from './edit-article/edit-article.module'
 import { SettingsModule } from './settings/settings.module'
 import { LikesModule } from './shared/modules/likes/likes.module'
+import { ProfileModule } from './profile/profile.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -42,7 +43,8 @@ import { LikesModule } from './shared/modules/likes/likes.module'
     ArticleModule,
     EditArticleModule,
     SettingsModule,
-    LikesModule
+    LikesModule,
+    ProfileModule,
   ],
   providers: [PersistenceService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent],
