@@ -6,9 +6,29 @@ import { EffectsModule } from '@ngrx/effects'
 import { ProfileEffects } from './store/profileEffects'
 import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/profileReducer'
+import { RouterModule, Routes } from '@angular/router'
+import { FeedModule } from '../shared/modules/feed/feed.module'
+
+const routes: Routes = [
+  {
+    path: 'profiles/:slug',
+    component: ProfileComponent,
+  },
+  {
+    path: 'profiles/:slug/favorites',
+    component: ProfileComponent,
+  },
+]
 
 @NgModule({
-  imports: [CommonModule, EffectsModule.forFeature([ProfileEffects]), StoreModule.forFeature('profile', reducers)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    EffectsModule.forFeature([ProfileEffects]),
+    StoreModule.forFeature('profile', reducers),
+    RouterModule,
+    FeedModule,
+  ],
   declarations: [ProfileComponent],
   providers: [ProfileService],
 })
