@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { select, Store } from '@ngrx/store'
 import { registerRequestAction } from '../../store/authActions'
@@ -12,11 +12,13 @@ import { BackendErrors } from '../../../shared/types/interfaces'
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.scss'],
 })
-export class RegisterFormComponent implements OnInit, OnChanges {
-  constructor(private fb: FormBuilder, private store: Store) {}
-  form: FormGroup
+export class RegisterFormComponent implements OnInit {
   isSubmitting$: Observable<boolean>
   backendErrors$: Observable<BackendErrors> | null
+
+  constructor(private fb: FormBuilder, private store: Store) {}
+
+  form: FormGroup
 
   initializeForm() {
     this.form = this.fb.group({
@@ -36,9 +38,5 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.initializeForm()
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('on change ', changes)
   }
 }

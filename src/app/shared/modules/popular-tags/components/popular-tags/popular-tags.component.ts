@@ -10,11 +10,11 @@ import { errorSelector, isLoadingSelector, popularTagsSelector } from '../../sto
   styleUrls: ['./popular-tags.component.scss'],
 })
 export class PopularTagsComponent implements OnInit {
-  constructor(private store: Store) {}
-
   popularTags$: Observable<string[]>
   isLoading$: Observable<boolean>
   error$: Observable<string | null>
+
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.fetchData()

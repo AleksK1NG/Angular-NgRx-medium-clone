@@ -39,11 +39,9 @@ export class ArticleComponent implements OnInit, OnDestroy {
     this.slug = this.route.snapshot.paramMap.get('slug')
     this.isLoading$ = this.store.pipe(select(isLoadingSelector))
     this.error$ = this.store.pipe(select(errorSelector))
-    console.log(11111)
     this.isAuthor$ = combineLatest(this.store.pipe(select(articleSelector)), this.store.pipe(select(userSelector))).pipe(
       map((value) => {
         const [article, currentUser] = value
-        console.log('[article, currentUser] ', article?.author?.username === currentUser?.username)
         return article?.author?.username === currentUser?.username
       })
     )

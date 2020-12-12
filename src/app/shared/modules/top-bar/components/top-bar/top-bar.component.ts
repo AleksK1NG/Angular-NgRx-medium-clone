@@ -10,11 +10,11 @@ import { isAnonymousSelector, isLoggedInSelector, userSelector } from '../../../
   styleUrls: ['./top-bar.component.scss'],
 })
 export class TopBarComponent implements OnInit {
-  constructor(private store: Store) {}
-
   isLoggedIn$: Observable<boolean>
   isAnonymous$: Observable<boolean>
   currentUser$: Observable<CurrentUser | null>
+
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector))
