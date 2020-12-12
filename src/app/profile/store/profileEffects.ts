@@ -7,7 +7,7 @@ import { catchError, map, switchMap } from 'rxjs/operators'
 import { of } from 'rxjs'
 
 @Injectable()
-export class GetUserProfileEffect {
+export class ProfileEffects {
   constructor(private actions$: Actions, private profileService: ProfileService) {}
 
   getUserProfile$ = createEffect(() =>
