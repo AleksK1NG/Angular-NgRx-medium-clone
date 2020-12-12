@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store'
-import { ArticleActionTypes } from './articleActionTypes'
+import { ArticleActionTypes } from './article.action-types'
 import { Article } from '../../shared/types/interfaces'
 
 export const getArticleRequestAction = createAction(ArticleActionTypes.GET_ARTICLE_REQUEST, props<{ slug: string }>())

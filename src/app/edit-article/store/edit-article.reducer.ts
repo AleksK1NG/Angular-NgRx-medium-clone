@@ -6,7 +6,7 @@ import {
   getArticleErrorAction,
   getArticleRequestAction,
   getArticleSuccessAction,
-} from './editArticleActions'
+} from './edit-article.actions'
 
 export interface EditArticleState {
   isLoading: boolean,

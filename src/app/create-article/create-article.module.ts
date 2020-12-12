@@ -5,9 +5,9 @@ import { RouterModule, Routes } from '@angular/router'
 import { ArticleFormModule } from '../shared/modules/article-form/article-form.module'
 import { CreateArticleService } from './services/create-article.service'
 import { EffectsModule } from '@ngrx/effects'
-import { CreateArticleEffects } from './store/createArticleEffects'
+import { CreateArticleEffects } from './store/create-article.effects'
 import { StoreModule } from '@ngrx/store'
-import { reducers } from './store/createArticleReducer'
+import { reducers } from './store/create-article.reducer'
 
 const routes: Routes = [
   {

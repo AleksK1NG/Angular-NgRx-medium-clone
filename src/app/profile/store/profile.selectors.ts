@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
 import { AppState } from '../../shared/types/appState'
-import { ProfileState } from './profileReducer'
+import { ProfileState } from './profile.reducer'
 
 export const profileFeatureSelector = createFeatureSelector<AppState, ProfileState>('profile')
 

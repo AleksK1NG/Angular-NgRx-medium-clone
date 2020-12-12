@@ -3,9 +3,9 @@ import { CurrentUser, UserProfile } from '../../../shared/types/interfaces'
 import { combineLatest, Observable, Subscription } from 'rxjs'
 import { select, Store } from '@ngrx/store'
 import { ActivatedRoute, Params, Router } from '@angular/router'
-import { getProfileRequestAction } from '../../store/profileActions'
-import { errorSelector, isLoadingSelector, profileSelector } from '../../store/profileSelectors'
-import { userSelector } from '../../../auth/store/authSelectors'
+import { getProfileRequestAction } from '../../store/profile.actions'
+import { errorSelector, isLoadingSelector, profileSelector } from '../../store/profile.selectors'
+import { userSelector } from '../../../auth/store/auth.selectors'
 import { filter, map } from 'rxjs/operators'
 
 @Component({

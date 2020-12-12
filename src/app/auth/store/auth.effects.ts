@@ -14,7 +14,7 @@ import {
   updateUserErrorAction,
   updateUserRequestAction,
   updateUserSuccessAction,
-} from './authActions'
+} from './auth.actions'
 import { catchError, map, switchMap, tap } from 'rxjs/operators'
 import { AuthService } from '../services/auth.service'
 import { of } from 'rxjs'

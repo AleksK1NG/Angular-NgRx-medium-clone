@@ -12,7 +12,7 @@ import {
   getArticleErrorAction,
   getArticleRequestAction,
   getArticleSuccessAction,
-} from './editArticleActions'
+} from './edit-article.actions'
 import { ArticleService } from '../../shared/services/article.service'
 
 @Injectable()

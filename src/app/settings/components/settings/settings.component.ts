@@ -3,9 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms'
 import { BackendErrors, CurrentUser } from '../../../shared/types/interfaces'
 import { Observable, Subscription } from 'rxjs'
 import { select, Store } from '@ngrx/store'
-import { authErrorsSelector, isSubmittingSelector, userSelector } from '../../../auth/store/authSelectors'
+import { authErrorsSelector, isSubmittingSelector, userSelector } from '../../../auth/store/auth.selectors'
 import { filter } from 'rxjs/operators'
-import { logoutUserAction, updateUserRequestAction } from '../../../auth/store/authActions'
+import { logoutUserAction, updateUserRequestAction } from '../../../auth/store/auth.actions'
 
 @Component({
   selector: 'app-settings',

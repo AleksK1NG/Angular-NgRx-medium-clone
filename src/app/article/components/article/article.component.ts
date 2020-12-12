@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
-import { deleteArticleRequestAction, getArticleRequestAction } from '../../store/articleActions'
+import { deleteArticleRequestAction, getArticleRequestAction } from '../../store/article.actions'
 import { ActivatedRoute } from '@angular/router'
 import { Article } from '../../../shared/types/interfaces'
 import { combineLatest, Observable, Subscription } from 'rxjs'
-import { articleSelector, errorSelector, isLoadingSelector } from '../../store/articleSelectors'
-import { userSelector } from '../../../auth/store/authSelectors'
+import { articleSelector, errorSelector, isLoadingSelector } from '../../store/article.selectors'
+import { userSelector } from '../../../auth/store/auth.selectors'
 import { map } from 'rxjs/operators'
 
 @Component({

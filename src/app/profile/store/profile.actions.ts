@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store'
-import { ProfileActionTypes } from './profileActionTypes'
+import { ProfileActionTypes } from './profile.action-types'
 import { UserProfile } from '../../shared/types/interfaces'
 
 export const getProfileRequestAction = createAction(ProfileActionTypes.GET__PROFILE_REQUEST, props<{ slug: string }>())

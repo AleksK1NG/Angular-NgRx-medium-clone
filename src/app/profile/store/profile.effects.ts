@@ -1,6 +1,6 @@
 import { Actions, createEffect, ofType } from '@ngrx/effects'
 import { ProfileService } from '../services/profile.service'
-import { getProfileErrorAction, getProfileRequestAction, getProfileSuccessAction } from './profileActions'
+import { getProfileErrorAction, getProfileRequestAction, getProfileSuccessAction } from './profile.actions'
 import { Injectable } from '@angular/core'
 import { UserProfile } from '../../shared/types/interfaces'
 import { catchError, map, switchMap } from 'rxjs/operators'

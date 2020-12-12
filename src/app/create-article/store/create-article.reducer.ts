@@ -1,6 +1,6 @@
 import { BackendErrors } from '../../shared/types/interfaces'
 import { Action, createReducer, on } from '@ngrx/store'
-import { createArticleErrorAction, createArticleRequestAction, createArticleSuccessAction } from './createArticleActions'
+import { createArticleErrorAction, createArticleRequestAction, createArticleSuccessAction } from './create-article.actions'
 
 export interface CreateArticleState {
   isSubmitting: boolean

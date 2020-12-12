@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { select, Store } from '@ngrx/store'
-import { registerRequestAction } from '../../store/authActions'
-import { authErrorsSelector, isSubmittingSelector } from '../../store/authSelectors'
+import { registerRequestAction } from '../../store/auth.actions'
+import { authErrorsSelector, isSubmittingSelector } from '../../store/auth.selectors'
 import { Observable } from 'rxjs'
-import { RegisterRequest } from '../../store/authInterfaces'
+import { RegisterRequest } from '../../store/auth.interfaces'
 import { BackendErrors } from '../../../shared/types/interfaces'
 
 @Component({

@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects'
 import { catchError, map, switchMap } from 'rxjs/operators'
 import { HttpErrorResponse } from '@angular/common/http'
 import { of } from 'rxjs'
-import { addToFavoritesErrorAction, addToFavoritesRequestAction, addToFavoritesSuccessAction } from './likesActions'
+import { addToFavoritesErrorAction, addToFavoritesRequestAction, addToFavoritesSuccessAction } from './likes.actions'
 import { LikesService } from '../services/likes.service'
 
 @Injectable()

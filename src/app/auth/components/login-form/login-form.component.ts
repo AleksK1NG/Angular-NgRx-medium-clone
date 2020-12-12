@@ -3,9 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
 import { BackendErrors } from '../../../shared/types/interfaces'
-import { authErrorsSelector, isSubmittingSelector } from '../../store/authSelectors'
-import { LoginRequest } from '../../store/authInterfaces'
-import { loginRequestAction } from '../../store/authActions'
+import { authErrorsSelector, isSubmittingSelector } from '../../store/auth.selectors'
+import { LoginRequest } from '../../store/auth.interfaces'
+import { loginRequestAction } from '../../store/auth.actions'
 
 @Component({
   selector: 'app-login-form',

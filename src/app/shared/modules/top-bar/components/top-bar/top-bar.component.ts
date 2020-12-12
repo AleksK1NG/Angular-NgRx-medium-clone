@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
 import { CurrentUser } from '../../../../types/interfaces'
-import { isAnonymousSelector, isLoggedInSelector, userSelector } from '../../../../../auth/store/authSelectors'
+import { isAnonymousSelector, isLoggedInSelector, userSelector } from '../../../../../auth/store/auth.selectors'
 
 @Component({
   selector: 'app-top-bar',

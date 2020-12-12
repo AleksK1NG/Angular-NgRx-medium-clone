@@ -1,10 +1,10 @@
-import { AuthState } from '../../auth/store/authInterfaces'
-import { FeedState } from '../modules/feed/store/feedReducer'
-import { PopularTagsState } from '../modules/popular-tags/store/popularTagsReducer'
-import { ArticleState } from '../../article/store/articleReducer'
-import { CreateArticleState } from '../../create-article/store/createArticleReducer'
-import { EditArticleState } from '../../edit-article/store/editArticleReducer'
-import { ProfileState } from '../../profile/store/profileReducer'
+import { AuthState } from '../../auth/store/auth.interfaces'
+import { FeedState } from '../modules/feed/store/feed.reducer'
+import { PopularTagsState } from '../modules/popular-tags/store/popular-tags.reducer'
+import { ArticleState } from '../../article/store/article.reducer'
+import { CreateArticleState } from '../../create-article/store/create-article.reducer'
+import { EditArticleState } from '../../edit-article/store/edit-article.reducer'
+import { ProfileState } from '../../profile/store/profile.reducer'
 
 export interface AppState {
   auth: AuthState

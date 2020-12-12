@@ -1,6 +1,6 @@
 import { Article } from '../../shared/types/interfaces'
 import { Action, createReducer, on } from '@ngrx/store'
-import { getArticleErrorAction, getArticleRequestAction, getArticleSuccessAction } from './articleActions'
+import { getArticleErrorAction, getArticleRequestAction, getArticleSuccessAction } from './article.actions'
 import { routerNavigationAction } from '@ngrx/router-store'
 
 export interface ArticleState {

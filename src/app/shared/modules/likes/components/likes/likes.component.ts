@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store'
-import { addToFavoritesRequestAction } from '../../store/likesActions'
+import { addToFavoritesRequestAction } from '../../store/likes.actions'
 
 @Component({
   selector: 'app-likes',

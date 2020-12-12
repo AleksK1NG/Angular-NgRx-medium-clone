@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
 import { AppState } from '../../../types/appState'
-import { PopularTagsState } from './popularTagsReducer'
+import { PopularTagsState } from './popular-tags.reducer'
 
 export const popularTagsFeatureSelector = createFeatureSelector<AppState, PopularTagsState>('popularTags')
 
